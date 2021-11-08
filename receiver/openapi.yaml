@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Star Wars Quiz Game API
+  contact:
+    email: anandanmol150@gmail.com
+    
+paths:
+  /questions:
+    get:
+      summary: gets 5 questions for the quiz to start
+      operationId: app.get_questions
+      responses:
+        '200':
+          description: Sucessfully returned 5 questions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Question'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+components:
+  schemas:
+    Question:
+      required:
+      - question
+      - correct_answer
+      - incorrect_answers
+      properties:
+        question:
+          type: string
+          example: "What's your name?"
+        correct_answer:
+          example: "Anmol"
+        incorrect_answers:
+          type: array
