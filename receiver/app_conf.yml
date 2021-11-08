@@ -1,0 +1,9 @@
+version: 1
+questionstore:
+  filename: questions.json
+  num_questions: 50
+  min_questions: 25
+entities: ['people', 'planets', 'films', 'species', 'vehicles', 'starships']
+baseurl: https://swapi.dev/api/
+templatestore:
+  dirname: /home/anmol/star-wars-quiz-game/receiver/question_templates/
