@@ -7,3 +7,5 @@ entities: ['people', 'planets', 'films', 'species', 'vehicles', 'starships']
 baseurl: https://swapi.dev/api/
 templatestore:
   dirname: question_templates/
+scorestore:
+  url: http://localhost:8090/score

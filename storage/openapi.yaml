@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Score Management API
+  contact:
+    email: anand.anmol150@gmail.com
+    
+paths:
+  /score:
+    post:
+      summary: saves score
+      operationId: app.store_score
+      description: Saves a score from our quiz game
+      responses:
+        '201':
+          description: score saved
+        '400':
+          description: 'invalid input, object invalid'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Score'
+        description: Score to save
+
+components:
+  schemas:
+    Score:
+      type: object
+      required:
+        - name
+        - score
+      properties:
+        name:
+          type: string
+          example: 'Anmol'
+        score:
+          type: integer
+          example: 3

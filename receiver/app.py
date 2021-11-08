@@ -14,6 +14,8 @@ with open('log_conf.yml', 'r') as f:
 
 logger = logging.getLogger('basicLogger')
 
+HEADERS = {"content-type":"application/json"}
+
 def get_questions():
     """ 
     Responds to get requests at /questions and returns first set of questions
@@ -121,6 +123,17 @@ def create_questions(entity: str):
     
     return questions
 
+def store_score(body: dict):
+    """ Responds to post requests at /score and forwards them to the storage service """
+    
+    response = requests.post(app_config['scorestore']['url'], data=json.dumps(body), headers=HEADERS)
+
+    print(response.text)
+
+    if response.status_code == 201:
+        return 'Score saved successfully', 201
+    else:
+        return 'invalid input, object invalid', 400
 
 # Set up config for FlaskApp
 app = connexion.FlaskApp(__name__, specification_dir='')
