@@ -2,3 +2,4 @@ requests==2.26.0
 connexion==2.9.0
 Flask-Cors==3.0.10
 filelock==3.3.2
+swagger-ui-bundle==0.0.9
