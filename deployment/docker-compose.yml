@@ -1,0 +1,44 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'leaderboard'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+    - '3306:3306'
+    expose:
+    - '3306'
+    volumes:
+    - my-db:/var/lib/mysql
+    networks:
+      my-network:
+        ipv4_address: 10.5.0.5
+  star-wars-receiver:
+    image: star-wars-receiver
+    ports:
+      - "8080:8080"
+    networks:
+      my-network:
+        ipv4_address: 10.5.0.6
+  star-wars-storage:
+    image: star-wars-storage
+    ports:
+      - "8090:8090"
+    depends_on:
+      - db
+    networks:
+      my-network:
+        ipv4_address: 10.5.0.7
+volumes:
+  my-db:
+networks:
+  my-network:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
