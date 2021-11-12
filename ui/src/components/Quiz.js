@@ -20,7 +20,7 @@ const Quiz = () => {
             } catch (error) {
 
                 console.error(error);
-
+                window.alert('Error getting questions. Please try again.')
             }
         }
 

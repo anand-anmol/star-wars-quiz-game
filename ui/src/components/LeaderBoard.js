@@ -18,6 +18,7 @@ const LeaderBoard = () => {
             } catch (error) {
 
                 console.error(error);
+                window.alert('Error getting scores. Please try again.')
 
             }
 

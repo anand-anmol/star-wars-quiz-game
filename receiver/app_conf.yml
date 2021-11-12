@@ -8,6 +8,6 @@ baseurl: https://swapi.dev/api/
 templatestore:
   dirname: question_templates/
 scorestore:
-  url: http://10.5.0.7:8090/score
+  url: http://10.5.0.7/score
 leaderboardstore:
-  url: http://localhost:8090/leaderboard
+  url: http://10.5.0.7/leaderboard
