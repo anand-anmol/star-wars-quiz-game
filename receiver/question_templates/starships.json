@@ -3,18 +3,18 @@
         "properties_to_replace": ["name"],
         "question": "Who makes the #(name)?",
         "correct_answer": "manufacturer",
-        "incorrect_answers": []
+        "options": []
     },
     {
         "properties_to_replace": ["name"],
         "question": "How much does the #(name) cost?",
         "correct_answer": "cost_in_credits",
-        "incorrect_answers": []
+        "options": []
     },
     {
         "properties_to_replace": ["name"],
         "question": "What is the cargo capacity of a #(name)?",
         "correct_answer": "cargo_capacity",
-        "incorrect_answers": []
+        "options": []
     }
 ]

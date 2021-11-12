@@ -3,18 +3,18 @@
         "properties_to_replace": ["name"],
         "question": "What is the average lifespan of a #(name)?",
         "correct_answer": "average_lifespan",
-        "incorrect_answers": []
+        "options": []
     },
     {
         "properties_to_replace": ["name"],
         "question": "What is the average height of a #(name)?",
         "correct_answer": "average_height",
-        "incorrect_answers": []
+        "options": []
     },
     {
         "properties_to_replace": ["name"],
         "question": "What language does a #(name) speak?",
         "correct_answer": "language",
-        "incorrect_answers": []
+        "options": []
     }
 ]

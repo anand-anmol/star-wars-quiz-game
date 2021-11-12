@@ -48,14 +48,14 @@ components:
       required:
       - question
       - correct_answer
-      - incorrect_answers
+      - options
       properties:
         question:
           type: string
           example: "What's your name?"
         correct_answer:
           example: "Anmol"
-        incorrect_answers:
+        options:
           type: array
     Score:
       type: object

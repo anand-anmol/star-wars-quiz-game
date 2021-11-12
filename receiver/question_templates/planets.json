@@ -3,18 +3,18 @@
         "properties_to_replace": ["name"],
         "question": "What's the population of #(name)?",
         "correct_answer": "population",
-        "incorrect_answers": []
+        "options": []
     },
     {
         "properties_to_replace": ["name"],
         "question": "What's the diameter of #(name)?",
         "correct_answer": "diameter",
-        "incorrect_answers": []
+        "options": []
     },
     {
         "properties_to_replace": ["name"],
         "question": "What is #(name)'s terrain like?",
         "correct_answer": "terrain",
-        "incorrect_answers": []
+        "options": []
     }
 ]

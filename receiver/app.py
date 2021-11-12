@@ -115,8 +115,14 @@ def create_questions(entity: str):
         
         answer_property = ques["correct_answer"]
         ques["correct_answer"] = entity_data_singular[answer_property]
-        ques["incorrect_answers"] = [answer[answer_property] for answer in random.sample(entity_data_all, 3)]
-        
+        ques["options"] = {ques["correct_answer"]}
+        ques["options"].update([answer[answer_property] for answer in random.sample(entity_data_all, 3)])
+
+        while len(ques["options"]) < 4:
+            ques["options"].add(random.choice(entity_data_all)[answer_property])
+
+        ques["options"] = list(ques["options"])
+
         del ques["properties_to_replace"]
         
         questions[index] = ques

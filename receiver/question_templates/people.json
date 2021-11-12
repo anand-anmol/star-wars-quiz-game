@@ -3,18 +3,18 @@
         "properties_to_replace": ["name"],
         "question": "How tall is #(name)?",
         "correct_answer": "height",
-        "incorrect_answers": []
+        "options": []
     },
     {
         "properties_to_replace": ["name"],
         "question": "How heavy is #(name)?",
         "correct_answer": "mass",
-        "incorrect_answers": []
+        "options": []
     },
     {
         "properties_to_replace": ["name"],
         "question": "When was #(name) born?",
         "correct_answer": "birth_year",
-        "incorrect_answers": []
+        "options": []
     }
 ]

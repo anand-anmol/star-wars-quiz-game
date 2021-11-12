@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 questions.json*
+
+node_modules/
