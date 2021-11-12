@@ -45,6 +45,28 @@ def store_score(body: dict):
 
         return 'invalid input, object invalid', 400
 
+def get_top_scores():
+    """ Returns top 10 scores from database for the leaderboard """
+
+    try:
+
+        session = DB_SESSION()
+
+        scores= session.query(Score).order_by(Score.score.desc(), Score.date_created.desc()).limit(10)
+
+        session.close()
+
+        scores = [score.to_dict() for score in scores]
+    
+    except Exception as e:
+
+        logger.error(e)
+
+        return 'Trouble getting top scores', 500
+
+    return scores, 200
+
+
 # Set up config for FlaskApp
 app = connexion.FlaskApp(__name__, specification_dir='')
 app.add_api("openapi.yaml", strict_validation=True, validate_responses=True)

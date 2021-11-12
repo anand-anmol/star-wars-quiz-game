@@ -41,3 +41,21 @@ button:hover {
 #intro {
   text-align: center;
 }
+
+table {
+  margin: 0 auto;
+  width: 50%;
+  color: white;
+  background: black;
+}
+
+td, th {
+  height: 2rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+th {
+  background: black;
+  border-color: white;
+}

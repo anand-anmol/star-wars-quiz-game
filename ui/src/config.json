@@ -1,4 +1,5 @@
 {
     "QUESTIONS_URL": "http://10.5.0.6/questions",
-    "SCORE_URL": "http://10.5.0.6/score"
+    "SCORE_URL": "http://10.5.0.6/score",
+    "LEADERBOARD_URL": "http://10.5.0.6/leaderboard"
 }

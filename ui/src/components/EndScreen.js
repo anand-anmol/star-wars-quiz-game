@@ -1,18 +1,18 @@
 import configData from "../config.json";
 
-const EndScreen = ({score}) => {
+const EndScreen = ({ score }) => {
 
     const submitScore = async () => {
 
         const name = prompt("Please enter your Name");
 
-        if (name !== null){
+        if (name !== null) {
 
             const response = await fetch(configData.SCORE_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                  },
+                },
                 body: JSON.stringify({
                     "name": name,
                     "score": score
@@ -23,7 +23,7 @@ const EndScreen = ({score}) => {
                 console.log('Score saved successfully!');
                 window.location.reload();
             }
-    
+
         }
 
 
@@ -43,4 +43,4 @@ const EndScreen = ({score}) => {
     )
 }
 
-export default EndScreen
+export default EndScreen;

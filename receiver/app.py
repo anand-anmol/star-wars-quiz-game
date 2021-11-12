@@ -134,12 +134,29 @@ def store_score(body: dict):
     
     response = requests.post(app_config['scorestore']['url'], data=json.dumps(body), headers=HEADERS)
 
-    print(response.text)
-
     if response.status_code == 201:
         return 'Score saved successfully', 201
     else:
         return 'invalid input, object invalid', 400
+
+def get_top_scores():
+    """ Returns top 10 scores from database for the leaderboard """
+    
+    try:
+        response = requests.get(app_config['leaderboardstore']['url'])
+
+        scores = response.json()
+    
+    except Exception as e:
+
+        logger.error(e)
+
+        return 'Trouble getting top scores', 500
+
+    if response.status_code == 200:
+        return scores, 200
+    else:
+        return 'Error getting scores', 400
 
 # Set up config for FlaskApp
 app = connexion.FlaskApp(__name__, specification_dir='')
@@ -155,4 +172,4 @@ if __name__ == "__main__":
     t1.setDaemon(True)
     t1.start()
 
-    app.run(port=80)
+    app.run(port=8080)

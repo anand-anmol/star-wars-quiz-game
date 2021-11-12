@@ -41,6 +41,25 @@ paths:
             schema:
               $ref: '#/components/schemas/Score'
         description: Score to save
+  /leaderboard:
+    get:
+      summary: gets top 10 scores for the leaderboard
+      operationId: app.get_top_scores
+      responses:
+        '200':
+          description: Sucessfully returned 10 scores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Score'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: string
 
 components:
   schemas:

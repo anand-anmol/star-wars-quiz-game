@@ -8,7 +8,7 @@ const Quiz = () => {
     const [questions, setQuestions] = useState([])
     const [score, setScore] = useState(0)
 
-    useEffect( () => {
+    useEffect(() => {
 
         const getQuestions = async () => {
             try {
@@ -16,11 +16,11 @@ const Quiz = () => {
                 const res = await fetch(configData.QUESTIONS_URL);
                 const questions = await res.json();
                 setQuestions(questions);
-    
+
             } catch (error) {
 
                 console.error(error);
-                
+
             }
         }
 
@@ -37,14 +37,14 @@ const Quiz = () => {
         }
 
         setQuestions(questions.filter((item, index) => index !== 0));
-   
+
     }
 
     return <div>
-        
-        { questions.length > 0 ? <Question question={questions[0]} selectAnswer={selectAnswer} /> : <EndScreen score={score} /> }
-            
-        </div>
+
+        {questions.length > 0 ? <Question question={questions[0]} selectAnswer={selectAnswer} /> : <EndScreen score={score} />}
+
+    </div>
 
 }
 
