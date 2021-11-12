@@ -1,5 +1,10 @@
+import { useState } from 'react';
+import LeaderBoard from './LeaderBoard';
+
 const Intro = ({ setStart }) => {
     
+    const [leaderBoard, setLeaderBoard] = useState(false);
+
     return (
         <div id='intro'>
             
@@ -10,8 +15,17 @@ const Intro = ({ setStart }) => {
             </h2>
 
             <button onClick= { () => setStart(true) }>
-                Start!
+                Start Game!
             </button>
+
+            <br />
+
+
+            <button onClick= { () => setLeaderBoard(!leaderBoard) }>
+                { leaderBoard ? "Hide" : "Show"} Leader Board
+            </button>
+
+            { leaderBoard ? <LeaderBoard /> : "" }
 
         </div >
     )

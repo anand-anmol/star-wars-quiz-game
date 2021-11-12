@@ -7,6 +7,7 @@ const EndScreen = ({score}) => {
         const name = prompt("Please enter your Name");
 
         if (name !== null){
+
             const response = await fetch(configData.SCORE_URL, {
                 method: 'POST',
                 headers: {
@@ -20,6 +21,7 @@ const EndScreen = ({score}) => {
 
             if (response.ok) {
                 console.log('Score saved successfully!');
+                window.location.reload();
             }
     
         }
@@ -31,7 +33,7 @@ const EndScreen = ({score}) => {
         <div>
             <h1> You scored {score} out of 5.</h1>
 
-            <button onClick={() => window.location.reload()} >Retry!</button>
+            <button onClick={() => window.location.reload()} >Back to Menu</button>
 
             <br />
 

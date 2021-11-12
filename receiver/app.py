@@ -155,4 +155,4 @@ if __name__ == "__main__":
     t1.setDaemon(True)
     t1.start()
 
-    app.run(port=8080)
+    app.run(port=80)

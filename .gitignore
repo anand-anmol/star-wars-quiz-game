@@ -131,3 +131,5 @@ dmypy.json
 questions.json*
 
 node_modules/
+
+build_images.sh

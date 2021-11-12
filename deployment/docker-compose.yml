@@ -8,10 +8,6 @@ services:
       MYSQL_USER: 'root'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
-    ports:
-    - '3306:3306'
-    expose:
-    - '3306'
     volumes:
     - my-db:/var/lib/mysql
     networks:
@@ -19,20 +15,23 @@ services:
         ipv4_address: 10.5.0.5
   star-wars-receiver:
     image: star-wars-receiver
-    ports:
-      - "8080:8080"
     networks:
       my-network:
         ipv4_address: 10.5.0.6
   star-wars-storage:
     image: star-wars-storage
-    ports:
-      - "8090:8090"
     depends_on:
       - db
     networks:
       my-network:
         ipv4_address: 10.5.0.7
+  star-wars-ui:
+    image: star-wars-ui
+    ports:
+      - "80:3000"
+    networks:
+      my-network:
+        ipv4_address: 10.5.0.8
 volumes:
   my-db:
 networks:
