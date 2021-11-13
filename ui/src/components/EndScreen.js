@@ -6,28 +6,41 @@ const EndScreen = ({ score }) => {
 
         const name = prompt("Please enter your Name");
 
+        // POST to store score in database
+
         if (name !== null) {
 
-            const response = await fetch(configData.SCORE_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    "name": name,
-                    "score": score
+            try {
+                const response = await fetch(configData.SCORE_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "name": name,
+                        "score": score
+                    })
                 })
-            })
 
-            if (response.ok) {
-                console.log('Score saved successfully!');
-                window.location.reload();
+                if (response.ok) {
+                    console.log('Score saved successfully!');
+                    window.location.reload();
+                }
+            }
+
+            catch (error) {
+
+                console.error(error);
+                window.alert('Error getting questions. Please try again.')
             }
 
         }
 
 
     }
+
+    /* Show user their score and render buttons to go back to menu
+    and to save your score */
 
     return (
         <div>

@@ -1,5 +1,7 @@
 const Question = ({ question, selectAnswer }) => {
 
+    // Render question text and options as buttons
+
     return <div>
         <h2>{question.question}</h2>
 

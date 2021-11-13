@@ -1,5 +1,7 @@
 const Intro = ({ setStart }) => {
 
+    // Render welcome text and a button to start the quiz
+
     return (
         <div id='intro'>
 

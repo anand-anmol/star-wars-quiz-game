@@ -3,11 +3,14 @@ import configData from "../config.json";
 
 const LeaderBoard = () => {
 
+    // scores state to store past high scores
     const [scores, setScores] = useState([])
 
     useEffect(() => {
 
         const getScores = async () => {
+
+            // get high scores from the API
 
             try {
 
@@ -27,6 +30,8 @@ const LeaderBoard = () => {
         getScores();
 
     }, [])
+
+    // Render past high scores into a table
 
     return (
         <div>
