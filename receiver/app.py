@@ -39,7 +39,7 @@ def get_questions():
                 json.dump(questions, file)
         
         # Start up a new thread to create questions if running low
-        if len(questions) < 25:
+        if len(questions) < app_config['questionstore']['min_questions']:
 
             t1 = Thread(target=populate_questions)
             t1.setDaemon(True)

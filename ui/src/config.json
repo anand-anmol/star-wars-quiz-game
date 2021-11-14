@@ -1,5 +1,5 @@
 {
-    "QUESTIONS_URL": "http://10.5.0.6/questions",
-    "SCORE_URL": "http://10.5.0.6/score",
-    "LEADERBOARD_URL": "http://10.5.0.6/leaderboard"
+    "QUESTIONS_URL": "http://localhost:8080/questions",
+    "SCORE_URL": "http://localhost:8080/score",
+    "LEADERBOARD_URL": "http://localhost:8080/leaderboard"
 }

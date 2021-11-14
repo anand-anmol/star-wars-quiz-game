@@ -51,6 +51,8 @@ const Quiz = () => {
 
     return <div>
 
+        <h3>Current Score: {score}/5</h3>
+
         {questions.length > 0 ? <Question question={questions[0]} selectAnswer={selectAnswer} /> : <EndScreen score={score} />}
 
     </div>
