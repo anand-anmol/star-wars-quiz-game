@@ -2,13 +2,11 @@
     {
         "properties_to_replace": ["episode_id"],
         "question": "When did episode #(episode_id) come out?",
-        "correct_answer": "release_date",
-        "options": []
+        "correct_answer": "release_date"
     },
     {
         "properties_to_replace": ["title"],
         "question": "What episode is #(title)?",
-        "correct_answer": "episode_id",
-        "options": []
+        "correct_answer": "episode_id"
     }
 ]

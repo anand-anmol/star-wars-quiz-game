@@ -15,13 +15,20 @@ const LeaderBoard = () => {
             try {
 
                 const res = await fetch(configData.LEADERBOARD_URL);
-                const scores = await res.json();
-                setScores(scores);
+
+                if (res.status != 200) {
+                    window.alert('Error getting scores. Please try again.');
+                    window.location.reload();
+                    return;
+                }
+
+                const scoresFromAPI = await res.json();
+                setScores(scoresFromAPI);
 
             } catch (error) {
 
                 console.error(error);
-                window.alert('Error getting scores. Please try again.')
+                window.alert('Error getting scores. Please try again.');
 
             }
 

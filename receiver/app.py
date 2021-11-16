@@ -27,13 +27,24 @@ def get_questions():
         # Read file, return first set of questions and remove them from file
         with FileLock(f"{app_config['questionstore']['filename']}.lock"):
 
-            with open(app_config['questionstore']['filename'], 'r') as file:
-                questions = json.load(file)
 
             try:
+                with open(app_config['questionstore']['filename'], 'r') as file:
+                    questions = json.load(file)
                 ques_to_return = questions.pop(0)
+            
             except IndexError:
+
+                start_thread_to_create_questions()
                 return "Questions are still being made", 400
+            
+            except Exception as e:
+
+                logger.error(f"Error reading questions file: {e}")
+                os.remove(app_config['questionstore']['filename'])
+                start_thread_to_create_questions()
+                return "Questions are still being made", 400
+
 
             with open(app_config['questionstore']['filename'], 'w') as file:
                 json.dump(questions, file)
@@ -41,15 +52,13 @@ def get_questions():
         # Start up a new thread to create questions if running low
         if len(questions) < app_config['questionstore']['min_questions']:
 
-            t1 = Thread(target=populate_questions)
-            t1.setDaemon(True)
-            logger.info(f'Starting Thread {t1} to create more questions')
-            t1.start()
+            start_thread_to_create_questions()
 
         return ques_to_return, 200
 
     else:
 
+        start_thread_to_create_questions()
         return "Questions are still being made", 400
 
 def populate_questions():
@@ -158,6 +167,14 @@ def get_top_scores():
     else:
         return 'Error getting scores', 400
 
+def start_thread_to_create_questions():
+    """"""
+
+    t1 = Thread(target=populate_questions)
+    t1.setDaemon(True)
+    logger.info(f'Starting Thread {t1} to create more questions')
+    t1.start()
+
 # Set up config for FlaskApp
 app = connexion.FlaskApp(__name__, specification_dir='')
 
@@ -168,8 +185,6 @@ app.app.config['CORS_HEADERS'] = 'Content-Type'
 
 if __name__ == "__main__":
 
-    t1 = Thread(target=populate_questions)
-    t1.setDaemon(True)
-    t1.start()
+    start_thread_to_create_questions()
 
     app.run(port=80)

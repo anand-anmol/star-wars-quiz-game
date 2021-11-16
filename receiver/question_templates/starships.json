@@ -2,19 +2,16 @@
     {
         "properties_to_replace": ["name"],
         "question": "Who makes the #(name)?",
-        "correct_answer": "manufacturer",
-        "options": []
+        "correct_answer": "manufacturer"
     },
     {
         "properties_to_replace": ["name"],
         "question": "How much does the #(name) cost?",
-        "correct_answer": "cost_in_credits",
-        "options": []
+        "correct_answer": "cost_in_credits"
     },
     {
         "properties_to_replace": ["name"],
         "question": "What is the cargo capacity of a #(name)?",
-        "correct_answer": "cargo_capacity",
-        "options": []
+        "correct_answer": "cargo_capacity"
     }
 ]

@@ -18,13 +18,15 @@ const Quiz = () => {
 
                 // Make get request to get questions for the quiz
                 const res = await fetch(configData.QUESTIONS_URL);
-                const questions = await res.json();
-                setQuestions(questions);
+                const questionsFromAPI = await res.json();
+                setQuestions(questionsFromAPI);
 
             } catch (error) {
 
                 console.error(error);
                 window.alert('Error getting questions. Please try again.')
+                window.location.reload();
+
             }
         }
 

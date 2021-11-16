@@ -66,7 +66,6 @@ def get_top_scores():
 
     return scores, 200
 
-
 # Set up config for FlaskApp
 app = connexion.FlaskApp(__name__, specification_dir='')
 app.add_api("openapi.yaml", strict_validation=True, validate_responses=True)
