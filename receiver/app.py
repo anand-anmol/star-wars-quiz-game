@@ -168,7 +168,7 @@ def get_top_scores():
         return 'Error getting scores', 400
 
 def start_thread_to_create_questions():
-    """"""
+    """ Creates a thread to run the populate_questions functions"""
 
     t1 = Thread(target=populate_questions)
     t1.setDaemon(True)
